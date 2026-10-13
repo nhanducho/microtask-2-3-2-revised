@@ -414,9 +414,9 @@ main{min-height:calc(100dvh - var(--header-height))}
 /* ================================================================
    2.3.2 · Example-series visual alignment
    Mirrors the supplied 2.1.2 reference without changing the task.
+   Content width inherits the common 1280px token defined above.
    ================================================================ */
 :root {
-  --content-max-width:1536px;
   --font-size-hero-desktop:50px;
   --font-size-page-title-desktop:40px;
   --font-size-activity-title-desktop:28px;
@@ -452,8 +452,8 @@ main{min-height:calc(100dvh - var(--header-height))}
 
 /* Screen one — introductory definitions and a dominant diagram. */
 .intro-title-block{margin:0 0 20px}
-.intro-title-block h1{max-width:1250px;margin-bottom:13px;font-size:var(--hero-title-size)}
-.intro-title-block .lead{max-width:1240px}
+.intro-title-block h1{max-width:1100px;margin-bottom:13px;font-size:var(--hero-title-size)}
+.intro-title-block .lead{max-width:980px}
 .intro-content-grid{
   display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);
   gap:24px;align-items:stretch;
@@ -602,8 +602,8 @@ main{min-height:calc(100dvh - var(--header-height))}
 /* Final screen: three equivalent text rows at left, graphic at right, full-width note. */
 .takeaway-screen{padding-top:38px}
 .takeaway-screen .takeaway-head{max-width:100%}
-.takeaway-screen h1{max-width:1300px;margin-bottom:14px;font-size:var(--hero-title-size)}
-.takeaway-head .lead{max-width:1180px}
+.takeaway-screen h1{max-width:1100px;margin-bottom:14px;font-size:var(--hero-title-size)}
+.takeaway-head .lead{max-width:980px}
 .takeaway-layout{margin-top:20px;grid-template-columns:minmax(0,.98fr) minmax(0,1.02fr);gap:30px;align-items:stretch}
 .takeaway-main{min-width:0;display:block}
 .takeaway-list{height:100%;display:grid;grid-template-rows:repeat(3,minmax(0,1fr));gap:12px}
@@ -979,6 +979,17 @@ main{min-height:calc(100dvh - var(--header-height))}
 @media (max-width:767px) {
   .task-layout > .context-panel { border:var(--border-default);border-radius:14px;padding:14px; }
   .task-layout > .activity-card { padding:2px 0 0; }
+  .question-title { font-size:24px; }
+  .image-expand { min-height:44px; }
+}
+/* Standard-height desktops use the same 48px content inset in every phase.
+   The short-viewport variants above remain compact to preserve screen fit. */
+@media (min-width:1200px) and (min-height:961px) {
+  .screen,.screen.task-screen,.screen.takeaway-screen { padding-top:48px; }
+}
+/* Account for wrapped title text on short laptops without hiding Start. */
+@media (min-width:981px) and (max-height:790px) {
+  .supporting-visual.intro-diagram { min-height:326px; }
 }
 </style>
 </head>
@@ -1016,7 +1027,10 @@ main{min-height:calc(100dvh - var(--header-height))}
 <p class="scenario-description" id="productDescription"></p>
 <div class="model" id="modelBadge">Model hidden<span>Place the point first</span></div>
 </aside><section aria-labelledby="questionTitle" class="activity-card">
+<div class="activity-meta">
+<span class="activity-type">Supply chain placement</span>
 
+</div>
 <h3 class="question-title" id="questionTitle">Place the decoupling point</h3>
 
 <div class="diagram-surface">
